@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.hnist.dao.BooksMapper">
+
+  <!--通过图书id查询到该商品-->
+  <select id="byIdBooks" parameterType="cn.hnist.pojo.Books" resultType="cn.hnist.pojo.Books">
+    select * from books where bookid = #{bookid}
+  </select>
+
+</mapper>
