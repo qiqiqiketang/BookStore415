@@ -7,4 +7,21 @@
     select * from books where bookid = #{bookid}
   </select>
 
+  <!--&lt;!&ndash;首页显示的一级标题，并且每个显示前6个商品&ndash;&gt;
+  <select id="byBookTypeList" parameterType="cn.hnist.pojo.Books" resultType="cn.hnist.pojo.Books">
+    SELECT bookid,bookname,booktype FROM books a WHERE (SELECT COUNT(*) FROM books t WHERE
+    t.booktype = a.booktype and t.bookid>a.bookid)&lt;6 order by booktype
+  </select>-->
+
+  <!--根据一级标题查询出以下的商品-->
+  <select id="byBookTypeList" parameterType="cn.hnist.pojo.Books" resultType="cn.hnist.pojo.Books">
+    select * from books where booktype=#{booktype}
+  </select>
+
+
+  <!--通过分类查询出其以下的所有图书并且分页显示-->
+  <select id="queryBooksList" parameterType="cn.hnist.pojo.Books" resultType="cn.hnist.pojo.Books">
+    select * from books where 1=1 AND
+    <if test=""></if>
+  </select>
 </mapper>

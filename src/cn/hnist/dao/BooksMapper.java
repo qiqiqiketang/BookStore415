@@ -17,6 +17,18 @@ public interface BooksMapper {
     public Books byIdBooks(@Param("bookid") int bookid) throws Exception;
 
     /**
+     * 首页显示的一级标题，并且每个显示前6个商品
+     * SELECT bookid,bookname,booktype FROM books a WHERE (SELECT COUNT(*) FROM books t WHERE
+     t.booktype = a.booktype and t.bookid>a.bookid) < 3 order by booktype
+     *//*
+    public List<Books> byBookTypeList();*/
+
+    /**
+     * 根据标题查询出一下的商品
+     */
+    public List<Books> byBookTypeList(@Param("booktype") Integer booktype);
+
+    /**
      * 通过分类查询出其以下的所有图书并且分页显示
      *
      */
@@ -31,11 +43,6 @@ public interface BooksMapper {
                                           @Param("currentPageNo") int currentPageNo,
                                           @Param("pageSize") int pageSize) throws Exception;
 
-    /**
-     * 首页显示的一级标题，并且每个显示前6个商品
-     * SELECT bookid,bookname,booktype FROM books a WHERE (SELECT COUNT(*) FROM books t WHERE
-     t.booktype = a.booktype and t.bookid>a.bookid) < 3 order by booktype
-     */
-    public List<Books> byBookTypeList();
+
 
 }

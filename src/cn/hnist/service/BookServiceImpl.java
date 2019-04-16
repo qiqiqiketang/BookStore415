@@ -18,6 +18,11 @@ public class BookServiceImpl implements BooksService{
     }
 
     @Override
+    public List<Books> byBookTypeList(int booktype) {
+        return booksMapper.byBookTypeList(booktype);
+    }
+
+    @Override
     public List<Books> queryBooksList(Integer type, int currentPageNo, int pageSize) throws Exception {
         return null;
     }
